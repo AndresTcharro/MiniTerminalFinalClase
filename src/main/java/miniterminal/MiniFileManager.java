@@ -48,30 +48,26 @@ public class MiniFileManager {
     //Método para imprimir el nombre de los directorios y archivos que contiene la ruta en la que estamos.
     public void printList(boolean info) throws FileNotFoundException {
         try {
-            String ruta = rutaActual.getAbsolutePath();  //
-            System.out.println(ruta);
+            String ruta = rutaActual.getAbsolutePath();
             File carpeta = new File(ruta);
             if (!carpeta.exists()) {
                 throw new FileNotFoundException();
             }
-            if (carpeta.isFile()) {  // Si la ruta que le hemos pasado imprimimos el nombre de la ruta 
-                //  System.out.println("Nombre de la ruta: " + carpeta.getName());
-            }
+
             if (carpeta.isDirectory()) {   //Creamos "ruta2" para almacenar los directoiros dentro de "carpeta" y que nos muestre su nombre 
                 System.out.println("Directorio: " + carpeta.getName());
                 for (File ruta2 : carpeta.listFiles()) {
                     if (ruta2.isDirectory()) {
                         System.out.println("Directorio: " + ruta2.getName());
-
                     }
-
-                    for (File ruta3 : carpeta.listFiles()) {   // //Creamos "ruta3" para almacenar los archivos dentro de "carpeta" y que nos muestre su nombre
-                        if (ruta3.isFile()) {
-                            System.out.println("Archivo: " + ruta3.getName());
-                        }
+                    }
+                    for (File ruta3 : carpeta.listFiles()) {
+                    if (ruta3.isFile()) {
+                        System.out.println("Archivo: " + ruta3.getName());
                     }
                 }
 
+            
             }
         } catch (FileNotFoundException e) {
             System.out.println("No hay elemenmtos dentro de la ruta actual");
@@ -87,20 +83,18 @@ public class MiniFileManager {
             if (!carpeta.exists()) {
                 throw new FileNotFoundException();
             }
-            if (carpeta.isFile()) {
-                System.out.println("Nombre: " + carpeta.getName() + "\nTamaño: " + carpeta.length() + "\nÚltima modificación: " + carpeta.lastModified());
-            }
+           
             if (carpeta.isDirectory()) {
-                System.out.println("Nombre  directorio: " + carpeta.getName() + "\nTamaño: " + carpeta.length() + "\nÚltima modificación: " + carpeta.lastModified());
+                System.out.println("Directorio: " + carpeta.getName() + "\nTamaño: " + carpeta.length() + "\nUltima modificación: " + carpeta.lastModified());
                 for (File ruta2 : carpeta.listFiles()) {
                     if (ruta2.isDirectory()) {
-                        System.out.println("Nombre  archivo: " + ruta2.getName() + "\nTamaño: " + ruta2.length() + "\nÚltima modificación: " + ruta2.lastModified());
+                        System.out.println("Directorio: " + ruta2.getName() + "\nTamaño: " + ruta2.length() + "\nUltima modificación: " + ruta2.lastModified());
                     }
 
                 }
                 for (File ruta3 : carpeta.listFiles()) {
                     if (ruta3.isFile()) {
-                        System.out.println("Nombre directorio: " + ruta3.getName());
+                        System.out.println("Archivo: " + ruta3.getName());
                     }
 
                 }

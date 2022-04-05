@@ -54,17 +54,17 @@ public class MiniTerminal {
 
             }
             if (Comando[0].equals("mkdir")) {                         //Volvemos a comprobar que el String que le psamos sea igual a "mkdir"
-                if (Comando.length <= 1) {                               //Si lo es recorremos el array 
-
-                    terminal.crearCarpeta(comando);                 //Creamos la nueva carpeta dentro de la ruta 
+                if (Comando.length <= 2 && Comando.length>1) {                               //Si lo es recorremos el array 
+                        String  comodinRuta = Comando [1];
+                    terminal.crearCarpeta(comodinRuta);                 //Creamos la nueva carpeta dentro de la ruta 
                 }
             }
 
-            if (Comando[0].equals("rm")) {
-                if (Comando.length <= 1) {
-                    terminal.borrarCarpeta(comando);
+           if (Comando[0].equals("rm")) {                         //Volvemos a comprobar que el String que le psamos sea igual a "mkdir"
+                if (Comando.length <= 2 && Comando.length>1) {                               //Si lo es recorremos el array 
+                        String  comodinRuta = Comando [1];
+                    terminal.borrarCarpeta(comodinRuta);                 //Creamos la nueva carpeta dentro de la ruta 
                 }
-
             }
 
             if (Comando[0].equals("help")) {                        //Nuevamente volvemos a comparar el String hasta que se igual a "help"
